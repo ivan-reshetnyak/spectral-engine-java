@@ -1,5 +1,8 @@
 # Compilation results
 build/
 
+# Natives
+natives/
+
 # Runtime generated
 logs/
