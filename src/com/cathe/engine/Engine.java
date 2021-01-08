@@ -13,8 +13,10 @@ public final class Engine implements java.io.Closeable {
   private Render render;
   private Window window;
   private Settings settings;
+  public Timer timer;
 
   public Engine( Logger logger, Settings settings ) throws RuntimeException {
+    this.timer = new Timer();
     this.logger = logger;
     this.settings = settings;
 
@@ -52,6 +54,7 @@ public final class Engine implements java.io.Closeable {
 
     while (window.isActive()) {
       render.startFrame();
+      timer.update();
       glfwPollEvents();
     }
   }
